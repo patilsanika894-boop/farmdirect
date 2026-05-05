@@ -5,7 +5,7 @@ import { apiService } from '../services/api';
 import { useAuth } from '../hooks/useAuth';
 
 // ── Generate a random UPI QR code URL using a free QR API ──
-const generateUpiQR = (amount: number, name: string) => {
+const generateUpiQR = (amount: number) => {
   const upiId = 'farmdirect@upi';
   const upiString = `upi://pay?pa=${upiId}&pn=FarmDirect&am=${amount}&cu=INR&tn=FarmDirect Order`;
   return `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiString)}`;
@@ -389,7 +389,7 @@ const Checkout = () => {
                       <div style={{ textAlign: 'center', marginBottom: '24px', padding: '20px', background: '#f9fafb', borderRadius: '16px', border: '1px solid #e5e7eb' }}>
                         <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '12px', fontWeight: 500 }}>Scan QR Code to Pay</div>
                         <img
-                          src={generateUpiQR(totalAmount, user?.name || 'Customer')}
+                          src={generateUpiQR(totalAmount)}
                           alt="UPI QR Code"
                           style={{ width: '180px', height: '180px', margin: '0 auto', display: 'block', borderRadius: '8px' }}
                         />

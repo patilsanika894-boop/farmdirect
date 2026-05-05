@@ -29,7 +29,7 @@ const Login = () => {
   setError('');
 
   try {
-    const data: any = await login(formData.email, formData.password);
+    await login(formData.email, formData.password);
     
     // Redirect based on role
     const user = JSON.parse(localStorage.getItem('user') || '{}');
