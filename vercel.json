@@ -2,18 +2,5 @@
   "buildCommand": "cd frontend && npm ci && npm run build",
   "installCommand": "cd frontend && npm ci",
   "outputDirectory": "frontend/dist",
-  "framework": "vite",
-  "env": {
-    "NODE_OPTIONS": "--max_old_space_size=3000"
-  },
-  "routes": [
-    {
-      "src": "/api/:path*",
-      "destination": "http://localhost:5000/api/:path*"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "framework": "vite"
 }
